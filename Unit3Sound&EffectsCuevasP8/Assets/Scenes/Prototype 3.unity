@@ -385,9 +385,12 @@ GameObject:
   m_Component:
   - component: {fileID: 835818921}
   - component: {fileID: 835818920}
+  - component: {fileID: 835818922}
+  - component: {fileID: 835818923}
+  - component: {fileID: 835818924}
   m_Layer: 9
   m_Name: Background
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -438,7 +441,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 40.96, y: 40.96}
+  m_Size: {x: 112.79999, y: 18.781641}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -454,6 +457,96 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 45, y: 9.5, z: 4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &835818922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835818919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37aadc54d0103694ea22fe0d97fbf76f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &835818923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835818919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0aa4430d86ef1240839625ff632a99b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &835818924
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835818919}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 112.79999, y: 18.781641, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1248428853
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1248428855}
+  - component: {fileID: 1248428854}
+  m_Layer: 0
+  m_Name: SpawnManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1248428854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248428853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d5e8727d21314944bf884953d8cf084, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstaclePrefab: {fileID: 1508409307336729572, guid: ca5a90dce4e685540b875b36986a0660, type: 3}
+--- !u!4 &1248428855
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248428853}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 12.647881, y: 7.050803, z: 1.1989824}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -476,9 +569,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 027606ad151af9940a491e13358d38a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 20
-  gravityModifier: 5
+  jumpForce: 10
+  gravityModifier: 1
   isOnGround: 1
+  gameOver: 0
 --- !u!65 &1736802538
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -498,8 +592,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.1509237, y: 2.9211745, z: 0.83902866}
-  m_Center: {x: -0.010911674, y: 1.4659989, z: -0.0021876094}
+  m_Size: {x: 1.1509237, y: 2.9327726, z: 0.83902866}
+  m_Center: {x: -0.010911704, y: 1.4601655, z: -0.0021876094}
 --- !u!54 &1736802539
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -525,7 +619,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 122
   m_CollisionDetection: 0
 --- !u!1 &2014335011
 GameObject:
@@ -641,3 +735,4 @@ SceneRoots:
   - {fileID: 2014335015}
   - {fileID: 835818921}
   - {fileID: 458149047}
+  - {fileID: 1248428855}
