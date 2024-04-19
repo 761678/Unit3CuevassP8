@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public float gravityModifier;
     public bool isOnGround = true;
     public bool gameOver;
+    public bool canDoubleJump;
 
     void Start()
     {
@@ -34,6 +35,19 @@ public class PlayerController : MonoBehaviour
             playerAnim.SetTrigger("Jump_trig");
             dirtParticle.Stop();
             playerAudio.PlayOneShot(jumpSound, 1.0f);
+            canDoubleJump = true;
+        }
+
+        //double jump
+        if(Input.GetKeyDown(KeyCode.Space) && playerRb.velocity.y > 0f && canDoubleJump && !gameOver)
+        {
+            canDoubleJump = false;
+
+            playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+
+
+            playerAnim.SetTrigger("Jump_trig");
+            playerAudio.PlayOneShot(jumpSound, 2);
         }
     }
 
